@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">5G 模式</string>
+    <string name="nsa_only">仅NSA</string>
+    <string name="sa_only">仅SA</string>
+    <string name="nsa_sa">NSA + SA</string>
+</resources>

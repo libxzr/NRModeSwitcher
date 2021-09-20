@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="moe.xzr.nrmodeswitcher">
+
+    <uses-permission android:name="com.qualcomm.permission.USE_QCRIL_MSG_TUNNEL" />
+
+    <application
+        android:label="@string/app_name"
+        android:theme="@style/Theme.NRModeSwitcher">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"/>
+    </application>
+
+</manifest>

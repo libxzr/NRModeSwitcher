@@ -1,0 +1,15 @@
+android_app {
+    name: "NRModeSwitcher",
+    srcs: [
+        "app/src/main/**/*.java",
+        "app/src/main/**/*.aidl",
+    ],
+    resource_dirs: ["app/src/main/res"],
+    manifest: "app/src/main/AndroidManifest.xml",
+    sdk_version: "current",
+    system_ext_specific: true,
+    certificate: "platform",
+    optimize: {
+        enabled: false,
+    },
+}
