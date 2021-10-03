@@ -36,6 +36,7 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     private Protocol mProtocol;
+    private Runnable unbindService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,10 @@ public class MainActivity extends Activity {
                 IQcrilMsgTunnel tunnel = IQcrilMsgTunnel.Stub.asInterface(service);
                 if (tunnel != null)
                     mProtocol = new Protocol(tunnel);
+
+                ServiceConnection serviceConnection = this;
+
+                unbindService = () -> MainActivity.this.unbindService(serviceConnection);
             }
 
             @Override
@@ -56,6 +61,13 @@ public class MainActivity extends Activity {
                 mProtocol = null;
             }
         }, BIND_AUTO_CREATE);
+    }
+
+    @Override
+    public void finish() {
+        if (unbindService != null)
+            unbindService.run();
+        super.finish();
     }
 
     private class Options {
